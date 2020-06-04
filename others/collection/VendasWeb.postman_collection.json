@@ -1,0 +1,476 @@
+{
+	"info": {
+		"_postman_id": "32888b63-3905-40cb-9c42-e1484f60895a",
+		"name": "VendasWeb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Clientes",
+			"item": [
+				{
+					"name": "Gravar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 12e5a65a-81e1-4642-a26b-4ad9670544c8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"inscricao\" : \"09413904999\",\n\t\"nome\" : \"Gabriel Lopes\",\n\t\"endereco\" : {\n\t\t\"rua\" : \"Rua Sete de Abril\",\n\t\t\"numero\" : \"1005\",\n\t\t\"bairro\" : \"Aeroporto\",\n\t\t\"cidade\" : \"Maringá\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Todos",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ca9d306e-a805-4df0-b964-64ec17578305",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"inscricao\" : \"09413904999\",\n\t\"nome\" : \"Gabriel Lopes Zikaaaaaaa\",\n\t\"endereco\" : {\n\t\t\"rua\" : \"Rua Sete de Abril\",\n\t\t\"numero\" : \"1005\",\n\t\t\"bairro\" : \"Aeroporto\",\n\t\t\"cidade\" : \"Maringá\"\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/clientes/71",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"clientes",
+								"71"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/clientes/33",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"clientes",
+								"33"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/clientes/33",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"clientes",
+								"33"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Vendas",
+			"item": [
+				{
+					"name": "Gravar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ca9d306e-a805-4df0-b964-64ec17578305",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"clienteId\" : 1,\n\t\"items\" : [\n\t\t{\n\t\t\"produtoId\" : 1,\n\t\t\"quantidade\" : 1,\n\t\t\"valorUnitario\" : 10.0\n\t\t},\n\t\t{\n\t\t\"produtoId\" : 2,\n\t\t\"quantidade\" : 1,\n\t\t\"valorUnitario\" : 10.0\n\t\t}\n\t],\n\t\"valorDesconto\" : 100.0,\n\t\"formaPagamento\" : \"Dinheiro\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/vendasweb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"vendasweb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Todos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ca9d306e-a805-4df0-b964-64ec17578305",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/vendas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"vendas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"clienteId\" : 72,\n\t\"items\" : [\n\t\t{\n\t\t\"produtoId\" : 3,\n\t\t\"quantidade\" : 1,\n\t\t\"valorUnitario\" : 10.0\n\t\t},\n\t\t{\n\t\t\"produtoId\" : 2,\n\t\t\"quantidade\" : 1,\n\t\t\"valorUnitario\" : 10.0\n\t\t}\n\t],\n\t\"valorDesconto\" : 100.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/vendas/71",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"vendas",
+								"71"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/vendas/162",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"vendas",
+								"162"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ca9d306e-a805-4df0-b964-64ec17578305",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/vendas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"vendas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Produtos",
+			"item": [
+				{
+					"name": "Gravar",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer ca9d306e-a805-4df0-b964-64ec17578305",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\" : \"Celular Iphone 10\",\n\t\"estoqueAtual\" : 10.00,\n\t\"precoCusto\" : 2400.00,\n\t\"precoVenda\" : 4199.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/produtos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/produtos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"produtos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\" : \"Celular Iphone XS PLUS\",\n\t\"estoqueAtual\" : 10.00,\n\t\"precoCusto\" : 2400.00,\n\t\"precoVenda\" : 4199.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/produtos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"produtos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/produtos/33",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"produtos",
+								"33"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8088/produtos/33",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"produtos",
+								"33"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "vendasweb",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "Vendas@123",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client",
+							"value": "vendasweb",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8088/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

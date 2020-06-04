@@ -1,0 +1,39 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="2" author="GABRIEL">
+        <createTable tableName="cliente">
+            <column name="cliente_id" type="INTEGER" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CLIENTE"  />
+            </column>
+            <column name="inscricao" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="nome" type="VARCHAR(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="bairro" type="VARCHAR(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="endereco_id" type="INTEGER">
+                <constraints nullable="true" />
+            </column>
+        </createTable>
+        
+        <addForeignKeyConstraint
+                baseColumnNames="endereco_id"
+                baseTableName="cliente"
+                constraintName="FK_CLIENTE_ENDERECO_ID"
+                deferrable="false"
+                initiallyDeferred="false"
+                onDelete="RESTRICT"
+                onUpdate="RESTRICT"
+                referencedColumnNames="endereco_id"
+                referencedTableName="endereco"
+                validate="true"/>
+                
+    </changeSet>
+</databaseChangeLog>
