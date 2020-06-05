@@ -1,0 +1,10 @@
+{
+	"inscricao" : "20123467071",
+	"nome" : "Gabriel Lopes Alterado",
+	"endereco" : {
+		"rua" : "Rua Dez de Novebro",
+		"numero" : "1009",
+		"bairro" : "Vila Bosque",
+		"cidade" : "Maringá"
+	}
+}

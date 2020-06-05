@@ -2,17 +2,17 @@ package com.gabriellopesjds.vendasweb.domain.dto.response;
 
 public class ClienteResponse {
 
-	private String id;
+	private Long id;
 	
 	private String inscricao;
 	
 	private String nome;
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

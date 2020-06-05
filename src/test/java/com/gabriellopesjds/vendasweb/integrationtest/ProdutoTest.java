@@ -8,9 +8,6 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 
-import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
-
 class ProdutoTest extends AbstractIntegrationTest{
 	
 	@Override
@@ -35,11 +32,10 @@ class ProdutoTest extends AbstractIntegrationTest{
 	
 	@Test
 	public void removeProdutoComSucessoTest() {
-		int idProdutoSave = postProdutoAndReturnId("/json/cadastrar_produto_com_sucesso.json");
+		Long idProdutoSave = postRequestAndReturnId("/json/cadastrar_produto_com_sucesso.json");
 		
 		Map<String, Object> pathParams = new HashMap<>();
 		pathParams.put("id", idProdutoSave );
-		System.out.println(idProdutoSave);
 		deleteRequest(pathParams)
 			.then()
 				.statusCode(HttpStatus.NO_CONTENT.value());
@@ -47,7 +43,7 @@ class ProdutoTest extends AbstractIntegrationTest{
 	
 	@Test
 	public void alteraProdutoComSucesso() {
-		int idProdutoSave = postProdutoAndReturnId("/json/cadastrar_produto_com_sucesso.json");
+		Long idProdutoSave = postRequestAndReturnId("/json/cadastrar_produto_com_sucesso.json");
 		Map<String, Object> pathParams = new HashMap<>();
 		pathParams.put("id", idProdutoSave);
 		
@@ -57,13 +53,5 @@ class ProdutoTest extends AbstractIntegrationTest{
 				.root("data")
 					.body("id", equalTo(idProdutoSave))
 					.body("nome", equalTo("Celular Iphone 11"));
-	}
-	
-	private int postProdutoAndReturnId(String file) {
-		Response response = 
-				postRequest(file);
-
-		JsonPath json = new JsonPath(response.asString());
-		return json.getInt("data.id");
 	}
 }

@@ -47,6 +47,12 @@ public abstract class AbstractIntegrationTest extends AbstractConfigurationTest{
 			   .thenReturn();
 	}
 	
+	public Long postRequestAndReturnId(String file) {
+		return postRequest(file)
+					.jsonPath()
+					.getLong("data.id");
+	}
+	
 	protected Response postRequest(String body) {
 		return given()
 					.spec(buildRequestSpecification(body))
