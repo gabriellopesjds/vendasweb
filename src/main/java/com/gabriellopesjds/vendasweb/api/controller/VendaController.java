@@ -4,11 +4,12 @@ import java.net.URI;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.CacheControl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,7 +32,7 @@ public class VendaController {
 	private VendaService service;
 
 	@PostMapping
-	public ResponseEntity<BaseResponse<VendaResponse>> create(@Validated @RequestBody VendaRequest requestDTO) {
+	public ResponseEntity<BaseResponse<VendaResponse>> create(@Valid @RequestBody VendaRequest requestDTO) {
 		
 		VendaResponse responseDTO = service.save(requestDTO);
 		
@@ -46,7 +47,7 @@ public class VendaController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<BaseResponse<VendaResponse>> update(@Validated @RequestBody VendaRequest requestDTO, @PathVariable  Long id) {
+	public ResponseEntity<BaseResponse<VendaResponse>> update(@Valid @RequestBody VendaRequest requestDTO, @PathVariable  Long id) {
 		
 		VendaResponse responseDTO = service.update(requestDTO, id);
 		
