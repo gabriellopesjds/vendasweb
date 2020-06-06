@@ -3,6 +3,7 @@ package com.gabriellopesjds.vendasweb.domain.dto.request;
 import java.math.BigDecimal;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class ProdutoRequest {
 	
@@ -13,6 +14,7 @@ public class ProdutoRequest {
 	
 	private BigDecimal precoCusto;
 	
+	@NotNull
 	private BigDecimal precoVenda;
 	
 	public String getNome() {

@@ -4,12 +4,12 @@ import java.net.URI;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.CacheControl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,7 +32,7 @@ public class ProdutoController {
 	private ProdutoService service;
 
 	@PostMapping
-	public ResponseEntity<BaseResponse<ProdutoResponse>> create(@Validated @RequestBody ProdutoRequest requestDTO) {
+	public ResponseEntity<BaseResponse<ProdutoResponse>> create(@Valid @RequestBody ProdutoRequest requestDTO) {
 		
 		ProdutoResponse responseDTO = service.save(requestDTO);
 		
@@ -47,7 +47,7 @@ public class ProdutoController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<BaseResponse<ProdutoResponse>> update(@Validated @RequestBody ProdutoRequest requestDTO, @PathVariable  Long id) {
+	public ResponseEntity<BaseResponse<ProdutoResponse>> update(@Valid @RequestBody ProdutoRequest requestDTO, @PathVariable  Long id) {
 		
 		ProdutoResponse responseDTO = service.update(requestDTO, id);
 		

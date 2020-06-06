@@ -3,6 +3,7 @@ package com.gabriellopesjds.vendasweb.integrationtest;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.Matchers.hasSize;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -81,6 +82,7 @@ public abstract class AbstractIntegrationTest extends AbstractConfigurationTest{
 				.root("error")
 					.body("status", equalTo(HttpStatus.BAD_REQUEST.value()))
 					.body("title", equalTo("Service"))
+					.body("details", hasSize(2))
 					.body("details[0].field", notNullValue())
 					.body("details[0].message", notNullValue());
 	}
