@@ -2,6 +2,8 @@ version: '3'
 services:
   vendas-web:
     image: maven
+    depends_on:
+      - "db"
     volumes:
       - ".:/deploy"
     working_dir: "/deploy"
@@ -9,3 +11,13 @@ services:
       - "8088:8080"
     command: bash -c "mvn clean && mvn install && java -jar target/vendasweb-0.0.1-SNAPSHOT.jar"
     container_name: VendasWeb    
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: 'vendasweb'
+      MYSQL_USER: 'vendas'
+      MYSQL_PASSWORD: 'vendas'
+      MYSQL_ROOT_PASSWORD: 'gudiao'
+    ports:
+      - "3306:3306"
+    container_name: db  

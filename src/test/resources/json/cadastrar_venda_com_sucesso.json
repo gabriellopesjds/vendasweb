@@ -1,0 +1,21 @@
+{
+   "cliente":{
+      "id":1
+   },
+   "items":[
+      {
+         "produto":{
+            "id":1
+         },
+         "quantidade":1
+      },
+      {
+         "produto":{
+            "id":1
+         },
+         "quantidade":10
+      }
+   ],
+   "valorDesconto":100.0,
+   "formaPagamento":"Dinheiro"
+}

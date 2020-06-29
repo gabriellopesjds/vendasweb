@@ -9,9 +9,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Builder 
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @Entity 
@@ -35,5 +41,4 @@ public class Produto {
 	@Column(name =  "preco_venda")
 	private BigDecimal precoVenda;
 	
-	public Produto() {};
 }

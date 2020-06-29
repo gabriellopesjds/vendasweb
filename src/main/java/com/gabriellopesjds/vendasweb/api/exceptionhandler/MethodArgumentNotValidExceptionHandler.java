@@ -21,9 +21,11 @@ public class MethodArgumentNotValidExceptionHandler extends AbstractExceptionHan
 					.getBindingResult()
 					.getFieldErrors()
 					.stream()
-					.map(error -> new ErrorDetailResponse()
+					.map(error -> ErrorDetailResponse
+								  	.builder()
 										.field(error.getField())
-										.message(String.format("Field %s %s", error.getField(), error.getDefaultMessage())))
+										.message(String.format("Field %s %s", error.getField(), error.getDefaultMessage()))
+									.build())
 					.collect(Collectors.toList());
 		
 		return handleErrorModelResponse(HttpStatus.BAD_REQUEST, "Service", details);

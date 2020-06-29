@@ -14,13 +14,19 @@ public abstract class AbstractExceptionHandler<T extends Exception> {
 	public abstract ResponseEntity<BaseResponse<Object>> handleException(T exception);
 	
 	protected ResponseEntity<BaseResponse<Object>> handleErrorModelResponse(HttpStatus status, String title, List<ErrorDetailResponse> details) {
-		ErrorResponse error = new ErrorResponse()
-									.status(status.value())
-									.title(title)
-									.details(details);
-		
+
 		return ResponseEntity
 				.status(status)
-				.body(BaseResponse.withError(error));
+				.body(BaseResponse.withError(buildErrorResponse(status, title, details)));
 	}
+
+	private ErrorResponse buildErrorResponse(HttpStatus status, String title, List<ErrorDetailResponse> details) {
+		return ErrorResponse
+				.builder()
+					.status(status.value())
+					.title(title)
+					.details(details)
+				.build();
+	}
+
 }
