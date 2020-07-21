@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Getter
 @Setter
 @Component
-@ConfigurationProperties(value = "api.sns")
-public class AmazonSnsProperties extends AbstractAmazonProperties {
-
+@ConfigurationProperties(value = "api.sqs.queue")
+public class AmazonSqsQueue {
+    private String queueCliente;
 }

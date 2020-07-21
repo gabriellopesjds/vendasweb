@@ -46,7 +46,14 @@
 					"name": "Buscar Todos",
 					"request": {
 						"auth": {
-							"type": "noauth"
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "0e431063-f6f1-4906-98b4-17789236e113",
+									"type": "string"
+								}
+							]
 						},
 						"method": "GET",
 						"header": [
@@ -148,18 +155,32 @@
 				{
 					"name": "Gravar",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "vendasweb",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "Vendas@123",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer ca9d306e-a805-4df0-b964-64ec17578305",
-								"type": "text",
-								"disabled": true
+								"value": "Bearer 0c2b710f-43db-42b8-8d32-2893395561fb",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"clienteId\" : 1,\n\t\"items\" : [\n\t\t{\n\t\t\"produtoId\" : 1,\n\t\t\"quantidade\" : 1,\n\t\t\"valorUnitario\" : 10.0\n\t\t},\n\t\t{\n\t\t\"produtoId\" : 2,\n\t\t\"quantidade\" : 1,\n\t\t\"valorUnitario\" : 10.0\n\t\t}\n\t],\n\t\"valorDesconto\" : 100.0,\n\t\"formaPagamento\" : \"Dinheiro\"\n}",
+							"raw": "{\n   \"cliente\":{\n      \"id\":1\n   },\n   \"items\":[\n      {\n         \"produto\":{\n            \"id\":1\n         },\n         \"quantidade\":1\n      },\n      {\n         \"produto\":{\n            \"id\":2\n         },\n         \"quantidade\":10\n      }\n   ],\n   \"valorDesconto\":100.0,\n   \"formaPagamento\":\"Dinheiro\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -167,14 +188,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8088/vendasweb",
+							"raw": "http://localhost:8080/vendas",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8088",
+							"port": "8080",
 							"path": [
-								"vendasweb"
+								"vendas"
 							]
 						}
 					},
