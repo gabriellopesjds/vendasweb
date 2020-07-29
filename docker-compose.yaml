@@ -1,16 +1,21 @@
 version: '3'
 services:
   vendas-web:
-    image: maven
+    build:
+      context: ./
+      dockerfile: ./DockerFile
+    image: vendasweb-api
     volumes:
       - ".:/deploy"
-    working_dir: "/deploy"
     ports:
       - "8088:8080"
-    command: bash -c "mvn clean && mvn install && java -jar target/vendasweb-0.0.1-SNAPSHOT.jar"
+      - "5005:5005"
+    environment:
+      - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+      - PROFILE=dev
     links:
       - db
-    container_name: VendasWeb 
+  #  command: bash -c "mvn clean && mvn install"  
   db:
     image: mysql:5.7
     ports:
@@ -19,7 +24,7 @@ services:
       - MYSQL_ROOT_HOST=%
       - MYSQL_DATABASE=vendasweb
       - MYSQL_USER=root
-      - MYSQL_ROOT_PASSWORD=123
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     volumes:
-      - ./others/docker/mysql_volume:/var/lib/mysql  
+     - ./others/docker/mysql_volume:/var/lib/mysql  
     container_name: db  
